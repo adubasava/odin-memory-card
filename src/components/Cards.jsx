@@ -6,11 +6,17 @@ function Cards({ name }) {
 
   useEffect(() => {
     const imageSource = async function (charName) {
-      const data = await fetch('https://pokeapi.co/api/v2/pokemon/' + charName);
-      const response = await data.json();
-      const imageSrc = response.sprites.other.dream_world.front_default;
-      setSrc(imageSrc);
-      setTitle(name.name);
+      try {
+        const data = await fetch(
+          'https://pokeapi.co/api/v2/pokemon/' + charName,
+        );
+        const response = await data.json();
+        const imageSrc = response.sprites.other.dream_world.front_default;
+        setSrc(imageSrc);
+        setTitle(name.name);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
     };
     imageSource(name.name);
   });
