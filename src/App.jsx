@@ -23,7 +23,7 @@ function App() {
   const [bestScore, setBestScore] = useState(0);
   const [Img, setImg] = useState(names);
 
-  function handleclick(picture) {
+  function handleClick(picture) {
     if (picture.clicked === true) {
       setScore(0);
       names.map((name) => {
@@ -51,7 +51,7 @@ function App() {
               className="card"
               onClick={(click) => {
                 click.preventDefault();
-                handleclick(item);
+                handleClick(item);
               }}
             >
               <Cards name={item} />
