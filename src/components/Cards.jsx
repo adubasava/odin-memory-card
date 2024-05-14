@@ -24,7 +24,7 @@ function Cards({ name }) {
   return (
     <>
       <h3>{title}</h3>
-      <img src={src} alt={title} />
+      <img src={src ? src : '<p>Loading</p>'} alt={title} />
     </>
   );
 }
