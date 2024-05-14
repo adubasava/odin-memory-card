@@ -39,101 +39,24 @@ function App() {
     }
     setImg(shuffleArray());
   }
+
   return (
     <>
       <Header score={score} bestScore={bestScore} />
       <main>
         <div className="cards">
-          <button
-            className="card"
-            onClick={(click) => {
-              click.preventDefault();
-              handleclick(Img[0]);
-            }}
-          >
-            <Cards name={Img[0]} />
-          </button>
-          <button
-            className="card"
-            onClick={(click) => {
-              click.preventDefault();
-              handleclick(Img[1]);
-            }}
-          >
-            <Cards name={Img[1]} />
-          </button>
-          <button
-            className="card"
-            onClick={(click) => {
-              click.preventDefault();
-              handleclick(Img[2]);
-            }}
-          >
-            <Cards name={Img[2]} />
-          </button>
-          <button
-            className="card"
-            onClick={(click) => {
-              click.preventDefault();
-              handleclick(Img[3]);
-            }}
-          >
-            <Cards name={Img[3]} />
-          </button>
-          <button
-            className="card"
-            onClick={(click) => {
-              click.preventDefault();
-              handleclick(Img[4]);
-            }}
-          >
-            <Cards name={Img[4]} />
-          </button>
-          <button
-            className="card"
-            onClick={(click) => {
-              click.preventDefault();
-              handleclick(Img[5]);
-            }}
-          >
-            <Cards name={Img[5]} />
-          </button>
-          <button
-            className="card"
-            onClick={(click) => {
-              click.preventDefault();
-              handleclick(Img[6]);
-            }}
-          >
-            <Cards name={Img[6]} />
-          </button>
-          <button
-            className="card"
-            onClick={(click) => {
-              click.preventDefault();
-              handleclick(Img[7]);
-            }}
-          >
-            <Cards name={Img[7]} />
-          </button>
-          <button
-            className="card"
-            onClick={(click) => {
-              click.preventDefault();
-              handleclick(Img[8]);
-            }}
-          >
-            <Cards name={Img[8]} />
-          </button>
-          <button
-            className="card"
-            onClick={(click) => {
-              click.preventDefault();
-              handleclick(Img[9]);
-            }}
-          >
-            <Cards name={Img[9]} />
-          </button>
+          {Img.map((item) => (
+            <button
+              key={item.name}
+              className="card"
+              onClick={(click) => {
+                click.preventDefault();
+                handleclick(item);
+              }}
+            >
+              <Cards name={item} />
+            </button>
+          ))}
         </div>
       </main>
     </>
